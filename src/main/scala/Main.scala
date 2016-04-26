@@ -34,4 +34,15 @@ object Main extends App{
     val urls = contents.map(_.getAttribute("href"))
     urls.distinct
   }
+
+  /**
+   * {username} の書いたブログ記事のURLのリストを返す
+   */
+  def allPagesOf(username: String) = {
+    val url = "http://d.hatena.ne.jp/"+username+"/archive"
+    val driver = new HtmlUnitDriver()
+    driver.get(url)
+    val pages = driver.findElementsByXPath("//li[@class='archive archive-section']/a")
+    pages
+  }
 }

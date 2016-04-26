@@ -6,4 +6,5 @@ libraryDependencies ++= Seq(
 
 initialCommands in console := """
 import com.github.haretaro.blogscraper._
+import scala.collection.JavaConversions._
 """
